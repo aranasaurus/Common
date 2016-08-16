@@ -4,7 +4,7 @@ public protocol CancellableDispatchOperation {
 
 //#if os(Linux)
 
-import Strand
+//import Strand
 
 extension Strand: CancellableDispatchOperation { }
     

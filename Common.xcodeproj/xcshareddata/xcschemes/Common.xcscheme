@@ -14,20 +14,6 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "______Target_Strand"
-               BuildableName = "Strand.framework"
-               BlueprintName = "Strand"
-               ReferencedContainer = "container:Common.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "______Target_Common"
                BuildableName = "Common.framework"
                BlueprintName = "Common"
@@ -60,9 +46,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "______Target_Strand"
-            BuildableName = "Strand.framework"
-            BlueprintName = "Strand"
+            BlueprintIdentifier = "______Target_Common"
+            BuildableName = "Common.framework"
+            BlueprintName = "Common"
             ReferencedContainer = "container:Common.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

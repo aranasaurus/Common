@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "CC8E9E4A258396E17221515981CEF3F18A37773E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "23A93BD79D6F4162360D9B57530A0BAC7A3E8EEA" : 0,
+    "CC8E9E4A258396E17221515981CEF3F18A37773E" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C0AA8D2F-CEA7-476F-80E8-B4274DD48AB4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "23A93BD79D6F4162360D9B57530A0BAC7A3E8EEA" : "Common\/Packages\/Strand-1.6.0\/",
+    "CC8E9E4A258396E17221515981CEF3F18A37773E" : "Common\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Common",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Common.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ketzusaka\/Strand.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "23A93BD79D6F4162360D9B57530A0BAC7A3E8EEA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:ChameleonBot\/Common.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CC8E9E4A258396E17221515981CEF3F18A37773E"
+    }
+  ]
+}

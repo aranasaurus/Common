@@ -1,0 +1,266 @@
+// !$*UTF8*$!
+{
+    archiveVersion = 1;
+    classes = {};
+    objectVersion = 46;
+    rootObject = __RootObject_;
+    objects = {
+        __RootObject_ = {
+            isa = PBXProject;
+            attributes = {LastUpgradeCheck = 9999;};
+            buildConfigurationList = ___RootConfs_;
+            compatibilityVersion = 'Xcode 3.2';
+            developmentRegion = English;
+            hasScannedForEncodings = 0;
+            knownRegions = (en);
+            mainGroup = ___RootGroup_;
+            productRefGroup = ____Products_;
+            projectDirPath = '';
+            projectRoot = '';
+            targets = (______Target_Common);
+        };
+        '__PBXFileRef_Package.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'Package.swift';
+            sourceTree = '<group>';
+        };
+        ___RootGroup_ = {
+            isa = PBXGroup;
+            children = ('__PBXFileRef_Package.swift', _____Configs_, _____Sources_,  Dependencies_, _______Tests_, ____Products_);
+            sourceTree = '<group>';
+        };
+        __PBXFileRef_Common_Info.plist = {
+            isa = PBXFileReference;
+            lastKnownFileType = text.plist.xml;
+            path = 'Common.xcodeproj/Common_Info.plist';
+            sourceTree = SOURCE_ROOT;
+        };
+        _______Group_Common = {
+            isa = PBXGroup;
+            name = 'Common';
+            path = 'Sources/Common';
+            sourceTree = '<group>';
+            children = ('__PBXFileRef_Sources/Common/Bool+Extensions.swift', '__PBXFileRef_Sources/Common/Box.swift', '__PBXFileRef_Sources/Common/Dictionary+Extensions.swift', '__PBXFileRef_Sources/Common/Dictionary+KeyPath.swift', '__PBXFileRef_Sources/Common/Dispatch.swift', '__PBXFileRef_Sources/Common/ExpressibleByStringLiteral.swift', '__PBXFileRef_Sources/Common/Int+Extensions.swift', '__PBXFileRef_Sources/Common/JSONSerialization+Extensions.swift', '__PBXFileRef_Sources/Common/OptionRepresentable.swift', '__PBXFileRef_Sources/Common/StateMachine.swift', '__PBXFileRef_Sources/Common/Strand.swift', '__PBXFileRef_Sources/Common/String+Extensions.swift', '__PBXFileRef_Sources/Common/URL+Extensions.swift', __PBXFileRef_Common_Info.plist);
+        };
+        '__PBXFileRef_Sources/Common/Bool+Extensions.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'Bool+Extensions.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/Common/Box.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'Box.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/Common/Dictionary+Extensions.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'Dictionary+Extensions.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/Common/Dictionary+KeyPath.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'Dictionary+KeyPath.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/Common/Dispatch.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'Dispatch.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/Common/ExpressibleByStringLiteral.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'ExpressibleByStringLiteral.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/Common/Int+Extensions.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'Int+Extensions.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/Common/JSONSerialization+Extensions.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'JSONSerialization+Extensions.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/Common/OptionRepresentable.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'OptionRepresentable.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/Common/StateMachine.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'StateMachine.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/Common/Strand.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'Strand.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/Common/String+Extensions.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'String+Extensions.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/Common/URL+Extensions.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'URL+Extensions.swift';
+            sourceTree = '<group>';
+        };
+        ______Target_Common = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = _______Confs_Common;
+            buildPhases = (CompilePhase_Common, ___LinkPhase_Common);
+            buildRules = ();
+            dependencies = ();
+            name = 'Common';
+            productName = Common;
+            productReference = _____Product_Common;
+            productType = 'com.apple.product-type.framework';
+        };
+        _____Product_Common = {
+            isa = PBXFileReference;
+            explicitFileType = 'wrapper.framework';
+            path = '<RelativePath:"Common.framework">';
+            sourceTree = BUILT_PRODUCTS_DIR;
+        };
+        CompilePhase_Common = {
+            isa = PBXSourcesBuildPhase;
+            files = ('__src_cc_ref_Sources/Common/Bool+Extensions.swift', '__src_cc_ref_Sources/Common/Box.swift', '__src_cc_ref_Sources/Common/Dictionary+Extensions.swift', '__src_cc_ref_Sources/Common/Dictionary+KeyPath.swift', '__src_cc_ref_Sources/Common/Dispatch.swift', '__src_cc_ref_Sources/Common/ExpressibleByStringLiteral.swift', '__src_cc_ref_Sources/Common/Int+Extensions.swift', '__src_cc_ref_Sources/Common/JSONSerialization+Extensions.swift', '__src_cc_ref_Sources/Common/OptionRepresentable.swift', '__src_cc_ref_Sources/Common/StateMachine.swift', '__src_cc_ref_Sources/Common/Strand.swift', '__src_cc_ref_Sources/Common/String+Extensions.swift', '__src_cc_ref_Sources/Common/URL+Extensions.swift');
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        '__src_cc_ref_Sources/Common/Bool+Extensions.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/Common/Bool+Extensions.swift';
+        };
+        '__src_cc_ref_Sources/Common/Box.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/Common/Box.swift';
+        };
+        '__src_cc_ref_Sources/Common/Dictionary+Extensions.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/Common/Dictionary+Extensions.swift';
+        };
+        '__src_cc_ref_Sources/Common/Dictionary+KeyPath.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/Common/Dictionary+KeyPath.swift';
+        };
+        '__src_cc_ref_Sources/Common/Dispatch.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/Common/Dispatch.swift';
+        };
+        '__src_cc_ref_Sources/Common/ExpressibleByStringLiteral.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/Common/ExpressibleByStringLiteral.swift';
+        };
+        '__src_cc_ref_Sources/Common/Int+Extensions.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/Common/Int+Extensions.swift';
+        };
+        '__src_cc_ref_Sources/Common/JSONSerialization+Extensions.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/Common/JSONSerialization+Extensions.swift';
+        };
+        '__src_cc_ref_Sources/Common/OptionRepresentable.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/Common/OptionRepresentable.swift';
+        };
+        '__src_cc_ref_Sources/Common/StateMachine.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/Common/StateMachine.swift';
+        };
+        '__src_cc_ref_Sources/Common/Strand.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/Common/Strand.swift';
+        };
+        '__src_cc_ref_Sources/Common/String+Extensions.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/Common/String+Extensions.swift';
+        };
+        '__src_cc_ref_Sources/Common/URL+Extensions.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/Common/URL+Extensions.swift';
+        };
+        ___LinkPhase_Common = {
+            isa = PBXFrameworksBuildPhase;
+            files = ();
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        _______Confs_Common = {
+            isa = XCConfigurationList;
+            buildConfigurations = (___DebugConf_Common, _ReleaseConf_Common);
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Debug;
+        };
+        ___DebugConf_Common = {
+            isa = XCBuildConfiguration;
+            buildSettings = { SWIFT_VERSION = '3.0'; LD_RUNPATH_SEARCH_PATHS = '$(TOOLCHAIN_DIR)/usr/lib/swift/macosx'; PRODUCT_MODULE_NAME = '$(TARGET_NAME:c99extidentifier)'; ENABLE_TESTABILITY = 'YES'; OTHER_SWIFT_FLAGS = '$(inherited)'; INFOPLIST_FILE = 'Common.xcodeproj/Common_Info.plist'; FRAMEWORK_SEARCH_PATHS = '$(PLATFORM_DIR)/Developer/Library/Frameworks'; SWIFT_OPTIMIZATION_LEVEL = '-Onone'; PRODUCT_BUNDLE_IDENTIFIER = 'Common'; PRODUCT_NAME = '$(TARGET_NAME:c99extidentifier)'; OTHER_LDFLAGS = '$(inherited)'; };
+            name = Debug;
+        };
+        _ReleaseConf_Common = {
+            isa = XCBuildConfiguration;
+            buildSettings = { SWIFT_VERSION = '3.0'; LD_RUNPATH_SEARCH_PATHS = '$(TOOLCHAIN_DIR)/usr/lib/swift/macosx'; PRODUCT_MODULE_NAME = '$(TARGET_NAME:c99extidentifier)'; ENABLE_TESTABILITY = 'YES'; OTHER_SWIFT_FLAGS = '$(inherited)'; INFOPLIST_FILE = 'Common.xcodeproj/Common_Info.plist'; FRAMEWORK_SEARCH_PATHS = '$(PLATFORM_DIR)/Developer/Library/Frameworks'; PRODUCT_BUNDLE_IDENTIFIER = 'Common'; PRODUCT_NAME = '$(TARGET_NAME:c99extidentifier)'; OTHER_LDFLAGS = '$(inherited)'; };
+            name = Release;
+        };
+        __Dependency_Common = {
+            isa = PBXTargetDependency;
+            target = ______Target_Common;
+        };
+        '__PBXFileRef_Common.xcodeproj/Configs/Project.xcconfig' = {
+            isa = PBXFileReference;
+            lastKnownFileType = text.xcconfig;
+            path = 'Common.xcodeproj/Configs/Project.xcconfig';
+            sourceTree = '<group>';
+        };
+        _____Configs_ = {
+            isa = PBXGroup;
+            children = ('__PBXFileRef_Common.xcodeproj/Configs/Project.xcconfig');
+            name = Configs;
+            sourceTree = '<group>';
+        };
+        _____Sources_ = {
+            isa = PBXGroup;
+            children = (_______Group_Common);
+            name = Sources;
+            sourceTree = '<group>';
+        };
+        ____Products_ = {
+            isa = PBXGroup;
+            children = (_____Product_Common);
+            name = Products;
+            sourceTree = '<group>';
+        };
+        _______Debug_ = {
+            isa = XCBuildConfiguration;
+            baseConfigurationReference = '__PBXFileRef_Common.xcodeproj/Configs/Project.xcconfig';
+            buildSettings = {};
+            name = Debug;
+        };
+        _____Release_ = {
+            isa = XCBuildConfiguration;
+            baseConfigurationReference = '__PBXFileRef_Common.xcodeproj/Configs/Project.xcconfig';
+            buildSettings = {};
+            name = Release;
+        };
+        ___RootConfs_ = {
+            isa = XCConfigurationList;
+            buildConfigurations = (_______Debug_, _____Release_);
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Debug;
+        };
+    };
+}

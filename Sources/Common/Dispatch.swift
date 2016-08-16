@@ -9,7 +9,7 @@ public protocol CancellableDispatchOperation {
 extension Strand: CancellableDispatchOperation { }
     
 public func inBackground(function: () -> Void) -> CancellableDispatchOperation {
-    return try! Strand(closure: function)
+    return try! Strand(function)
 }
 public func inBackground(try function: () throws -> Void, catch failure: (Error) -> Void) -> CancellableDispatchOperation {
     let item = {
@@ -19,7 +19,7 @@ public func inBackground(try function: () throws -> Void, catch failure: (Error)
             failure(error)
         }
     }
-    return try! Strand(closure: item)
+    return try! Strand(item)
 }
 
 //#else

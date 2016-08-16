@@ -1,7 +1,7 @@
 
 public final class Box<T> {
     public let value: T
-    public init(value: T) { self.value = value }
+    public init(_ value: T) { self.value = value }
 }
 
 //This is required to get around a 'recursive value types' limitation

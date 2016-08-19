@@ -2,10 +2,6 @@ public protocol CancellableDispatchOperation {
     func cancel() throws
 }
 
-//#if os(Linux)
-
-//import Strand
-
 extension Strand: CancellableDispatchOperation { }
     
 public func inBackground(function: () -> Void) -> CancellableDispatchOperation {
@@ -21,30 +17,8 @@ public func inBackground(try function: () throws -> Void, catch failure: (Error)
     }
     return try! Strand(item)
 }
-
-//#else
-//
-//import Foundation
-//
-//extension DispatchWorkItem: CancellableDispatchOperation { }
-//    
-//let backgroundQueue = DispatchQueue.global()
-//    
-//public func inBackground(function: () -> Void) -> CancellableDispatchOperation {
-//    let item = DispatchWorkItem(block: function)
-//    backgroundQueue.async(execute: item)
-//    return item
-//}
-//public func inBackground(try function: () throws -> Void, catch failure: (Error) -> Void) -> CancellableDispatchOperation {
-//    let item = DispatchWorkItem {
-//        do {
-//            try function()
-//        } catch let error {
-//            failure(error)
-//        }
-//    }
-//    backgroundQueue.async(execute: item)
-//    return item
-//}
-//
-//#endif
+public func keepAlive(until: () -> Bool = { false }) {
+    while !until() {
+        sleep(UInt32(0.5))
+    }
+}

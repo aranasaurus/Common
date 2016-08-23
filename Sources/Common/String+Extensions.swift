@@ -19,8 +19,7 @@ public extension String {
     public var snakeCase: String {
         return self
             .components(separatedBy: ["_", " "])
-            .enumerated()
-            .reduce("", { $0 + "_" + $1.1 })
+            .joined(separator: "_")
     }
     public var screamingSnakeCase: String {
         return self.snakeCase.uppercased()

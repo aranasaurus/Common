@@ -47,3 +47,15 @@ public extension String {
         catch { return [:] }
     }
 }
+
+public extension String {
+    public func withSuffix(_ suffix: String) -> String {
+        guard !self.hasSuffix(suffix) else { return self }
+        return "\(self)\(suffix)"
+    }
+    
+    public func withPrefix(_ prefix: String) -> String {
+        guard !self.hasPrefix(prefix) else { return self }
+        return "\(prefix)\(self)"
+    }
+}

@@ -1,15 +1,15 @@
 import Foundation
 
 public extension JSONSerialization {
-    public static func jsonObject(with data: Data) throws -> [String: Any]? {
+    public static func json(with data: Data, options opt: JSONSerialization.ReadingOptions = []) throws -> [String: Any]? {
         #if os(Linux)
-            return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            return try self.jsonObject(with: data, options: opt) as? [String: Any]
         #else
-            guard let result = try JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject] else { return nil }
-            let input = result.map { key, value -> (String, Any) in
-                return (key, value as Any)
-            }
-            return Dictionary<String, Any>(input)
+            guard let nsResult = try self.jsonObject(with: data, options: opt) as? NSDictionary else { return nil }
+            return Dictionary<String, Any>._bridgeFromObjectiveCAdoptingNativeStorageOf(nsResult)
         #endif
+    }
+    public static func data(from json: AnyObject, options opt: JSONSerialization.WritingOptions = []) throws -> Data {
+        return try self.data(withJSONObject: json, options: opt)
     }
 }

@@ -34,19 +34,19 @@ public extension String {
     }
 }
 
-public extension String {
-    public func makeDictionary() -> [String: Any] {
-        do {
-            guard
-                let data = self.data(using: .utf8),
-                let json = try JSONSerialization.jsonObject(with: data)
-                else { return [:] }
-            
-            return json
-        }
-        catch { return [:] }
-    }
-}
+//public extension String {
+//    public func makeDictionary() -> [String: Any] {
+//        do {
+//            guard
+//                let data = self.data(using: .utf8),
+//                let json = try JSONSerialization.jsonObject(with: data)
+//                else { return [:] }
+//            
+//            return json
+//        }
+//        catch { return [:] }
+//    }
+//}
 
 public extension String {
     public func withSuffix(_ suffix: String) -> String {

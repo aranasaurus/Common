@@ -34,18 +34,3 @@ public extension Dictionary {
     }
 }
 
-//public extension Dictionary where Key: StringType, Value: Any {
-//    public func makeString() -> String? {
-//        let input = self.map { key, value -> (String, Any) in
-//            return (key.string, value)
-//        }
-//        let dict = Dictionary<String, Any>(input)
-//        
-//        guard
-//            let data = try? JSONSerialization.jsonData(with: dict),
-//            let string = String(data: data, encoding: .utf8)
-//            else { return nil }
-//        
-//        return string
-//    }
-//}

@@ -5,8 +5,14 @@ public extension JSONSerialization {
         #if os(Linux)
             return try self.jsonObject(with: data, options: opt) as? [String: Any]
         #else
-            guard let nsResult = try self.jsonObject(with: data, options: opt) as? NSDictionary else { return nil }
-            return Dictionary<String, Any>._bridgeFromObjectiveCAdoptingNativeStorageOf(nsResult)
+            guard let nsResult = try self.jsonObject(with: data, options: opt) as? [String: AnyObject] else { return nil }
+            
+            var dict = [String: Any]()
+            for (key, value) in nsResult {
+                dict[key as String] = value as Any
+            }
+
+            return dict
         #endif
     }
     public static func data(from json: AnyObject, options opt: JSONSerialization.WritingOptions = []) throws -> Data {

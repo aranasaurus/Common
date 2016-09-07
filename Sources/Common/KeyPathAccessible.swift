@@ -1,7 +1,27 @@
-public enum KeyPathError: Error {
+
+/**
+ Describes a range of errors that can occur when attempting to access a `KeyPathAccessible` via `KeyPathComponent`s
+ */
+public enum KeyPathError: Error, CustomStringConvertible {
+    /// The input was not valid
     case invalidInput
+    
+    /// The provided keypath was not found
     case invalidKeyPath(keyPath: [KeyPathComponent])
+    
+    /// A value was found but the type requested was not the type that was found
     case typeMismatch(keyPath: [KeyPathComponent], expected: Any.Type, got: Any.Type)
+    
+    public var description: String {
+        switch self {
+        case .invalidInput:
+            return "The provided input was invalid"
+        case .invalidKeyPath(let keyPath):
+            return "Invalid keyPath provided: \(keyPath)"
+        case .typeMismatch(let keyPath, let expected, let got):
+            return "Type mismatch on keyPath: '\(keyPath)' - Expected: \(expected), got: \(got)"
+        }
+    }
 }
 
 public protocol KeyPathComponent { }
@@ -43,9 +63,9 @@ public extension KeyPathAccessible {
             
         } catch let error { throw error }
     }
-    public func valueExists(at keyPath: [KeyPathComponent], separator: String = ".", predicate: (Any) -> Bool = { _ in true }) -> Bool {
+    public func valueExists<T>(at keyPath: [KeyPathComponent], type: T.Type, predicate: (T) -> Bool = { _ in true }) -> Bool {
         do {
-            let value: Any = try self.value(at: keyPath)
+            let value: T = try self.value(at: keyPath)
             return predicate(value)
         }
         catch { return false }

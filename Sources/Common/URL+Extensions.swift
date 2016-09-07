@@ -1,5 +1,6 @@
 
 public extension String {
+    /// Takes a string and breaks in into key/value pairs for use as url query parameters
     public func makeQueryParameters() -> [String: String] {
         let pairs = self
             .components(separatedBy: "&")

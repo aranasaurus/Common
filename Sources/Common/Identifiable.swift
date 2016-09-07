@@ -1,4 +1,5 @@
 
+/// An abstraction that represents an item with a unique id that can be used to compare equality
 public protocol Identifiable: Equatable {
     var id: String { get }
 }

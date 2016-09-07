@@ -24,14 +24,17 @@ public enum KeyPathError: Error, CustomStringConvertible {
     }
 }
 
+/// An abstraction that represents a type that can be used as a portion of a key path
 public protocol KeyPathComponent { }
 extension String: KeyPathComponent { }
 extension Int: KeyPathComponent { }
 
+/// An abstraction that represents an item with values that can be retrieved with a series of `KeyPathComponent`s
 public protocol KeyPathAccessible {
     func path(key: KeyPathComponent) throws -> KeyPathAccessible
     func value<T>(key: KeyPathComponent) throws -> T
 }
+
 public extension KeyPathAccessible {
     public func value<T>(at keyPath: [KeyPathComponent]) throws -> T {
         guard !keyPath.isEmpty else { throw KeyPathError.invalidInput }

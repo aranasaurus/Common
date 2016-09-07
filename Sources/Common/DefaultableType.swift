@@ -1,5 +1,7 @@
 
+/// An abstraction the represents a type that can have a default value
 public protocol DefaultableType {
+    /// The default value to be used for this type
     static var `default`: Self { get }
 }
 

@@ -1,3 +1,6 @@
+
+/// An abstraction that represents an object that describes a set of states 
+/// and the rules used for transitioning between them
 public protocol StateRepresentable: Equatable {
     /// The event type that can trigger transitions
     associatedtype StateEvent
@@ -11,6 +14,7 @@ public protocol StateRepresentable: Equatable {
     func transition(withEvent event: StateEvent) -> Self?
 }
 
+/// A read-only version of a `StateMachine`
 public final class ReadOnlyStateMachine<State: StateRepresentable, Event where State.StateEvent == Event> {
     public typealias StateTransition = (old: State?, new: State) -> Void
     
@@ -25,6 +29,7 @@ public final class ReadOnlyStateMachine<State: StateRepresentable, Event where S
     }
 }
 
+/// StateMachine coordinates state transitions and notifies observers
 public final class StateMachine<State: StateRepresentable, Event where State.StateEvent == Event> {
     public typealias StateTransition = (old: State?, new: State) -> Void
     

@@ -1,6 +1,7 @@
 import Foundation
 
 public extension Dictionary {
+    /// Create a new `[Key: Value]` instance with the provided `(Key, Value)` tuples
     public init<S: Sequence where S.Iterator.Element == (Key, Value)>(_ tuples: S) {
         self.init()
         

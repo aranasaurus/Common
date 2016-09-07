@@ -1,9 +1,26 @@
 
-public enum ConvertibleTypeError: Error {
+/// Describes a range of errors that can occur when attempting to convert one type to another
+public enum ConvertibleTypeError: Error, CustomStringConvertible {
+    /// Unable to convert the passed value to the required type
     case unableToConvert(from: Any.Type, to: Any.Type)
+    
+    public var description: String {
+        switch self {
+        case .unableToConvert(let from, let to):
+            return "Unable to convert from \(String(from)) to \(String(to))"
+        }
+    }
 }
 
+/// An abstraction that represents a type that can be build from a range of other types
 public protocol ConvertibleType {
+    /**
+     Attempt to create an instance of `Self` from the provided data
+     
+     - parameter from: The source data
+     - throws: A `ConvertibleTypeError` with failure details
+     - returns: The value converted to `Self` if conversion is successful
+     */
     static func make(from value: Any) throws -> Self
 }
 extension ConvertibleType {

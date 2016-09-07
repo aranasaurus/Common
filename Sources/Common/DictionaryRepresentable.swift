@@ -1,5 +1,7 @@
 
+/// An abstraction that represents an item that can be represented as a `[String: Any]` dictionary
 public protocol DictionaryRepresentable {
+    /// Convert the current type into a `[String: Any]`
     func makeDictionary() -> [String: Any]
 }
 public protocol DictionaryValueRepresentable {

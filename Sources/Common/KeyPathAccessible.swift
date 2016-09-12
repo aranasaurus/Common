@@ -92,7 +92,7 @@ extension Dictionary: KeyPathAccessible {
         
         guard
             let castedValue = value as? T
-            else { throw KeyPathError.typeMismatch(keyPath: [key], expected: T.self, got: value.dynamicType) }
+            else { throw KeyPathError.typeMismatch(keyPath: [key], expected: T.self, got: type(of: value)) }
         
         return castedValue
     }
@@ -116,7 +116,7 @@ extension Array: KeyPathAccessible {
         
         guard
             let castedValue = value as? T
-            else { throw KeyPathError.typeMismatch(keyPath: [key], expected: T.self, got: value.dynamicType) }
+            else { throw KeyPathError.typeMismatch(keyPath: [key], expected: T.self, got: type(of: value)) }
         
         return castedValue
     }

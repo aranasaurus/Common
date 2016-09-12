@@ -9,7 +9,7 @@ public extension JSONSerialization {
             return nsDictToAny(nsResult)
         #endif
     }
-    public static func data(from json: AnyObject, options opt: JSONSerialization.WritingOptions = []) throws -> Data {
+    public static func data(from json: Any, options opt: JSONSerialization.WritingOptions = []) throws -> Data {
         return try self.data(withJSONObject: json, options: opt)
     }
 }

@@ -8,7 +8,7 @@ public enum Clamping {
     case exclusive
     
     /// Provides the lower bound operator depending on the type of clamping
-    private var minOperator: (Int, Int) -> Bool {
+    fileprivate var minOperator: (Int, Int) -> Bool {
         switch self {
         case .inclusive: return (>=)
         case .exclusive: return (>)
@@ -16,7 +16,7 @@ public enum Clamping {
     }
     
     /// Provides the upper bound operator depending on the type of clamping
-    private var maxOperator: (Int, Int) -> Bool {
+    fileprivate var maxOperator: (Int, Int) -> Bool {
         switch self {
         case .inclusive: return (<=)
         case .exclusive: return (<)

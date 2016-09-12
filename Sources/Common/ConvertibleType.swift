@@ -7,7 +7,7 @@ public enum ConvertibleTypeError: Error, CustomStringConvertible {
     public var description: String {
         switch self {
         case .unableToConvert(let from, let to):
-            return "Unable to convert from \(String(from)) to \(String(to))"
+            return "Unable to convert from \(String(describing: from)) to \(String(describing: to))"
         }
     }
 }
@@ -29,7 +29,7 @@ extension ConvertibleType {
     }
     static func tryConvert<T, U>(_ value: T, _ function: (T) -> U?) throws -> U {
         guard let converted = function(value)
-            else { throw ConvertibleTypeError.unableToConvert(from: value.dynamicType, to: U.self) }
+            else { throw ConvertibleTypeError.unableToConvert(from: type(of: value), to: U.self) }
         
         return converted
     }
@@ -47,7 +47,7 @@ extension Bool: ConvertibleType {
 }
 extension String: ConvertibleType {
     public static func make(from value: Any) throws -> String {
-        return String(value)
+        return String(describing: value)
     }
 }
 extension Int: ConvertibleType {

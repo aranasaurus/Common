@@ -1,3 +1,5 @@
+import libc
+
 public protocol CancellableDispatchOperation {
     func cancel() throws
 }
@@ -7,7 +9,7 @@ extension Strand: CancellableDispatchOperation { }
 public func inBackground(function: () -> Void) -> CancellableDispatchOperation {
     return try! Strand(function)
 }
-public func inBackground(try function: () throws -> Void, catch failure: (Error) -> Void) -> CancellableDispatchOperation {
+public func inBackground(try function: @escaping () throws -> Void, catch failure: @escaping (Error) -> Void) -> CancellableDispatchOperation {
     let item = {
         do {
             try function()
@@ -17,6 +19,7 @@ public func inBackground(try function: () throws -> Void, catch failure: (Error)
     }
     return try! Strand(item)
 }
+
 public func keepAlive(until: () -> Bool = { false }) {
     while !until() {
         sleep(UInt32(0.5))

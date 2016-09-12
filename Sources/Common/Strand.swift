@@ -7,11 +7,7 @@
  
  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-#if os(Linux)
-    @_exported import Glibc
-#else
-    @_exported import Darwin.C
-#endif
+import libc
 
 public enum StrandError: Error {
     case creationFailed(Int)
@@ -28,7 +24,7 @@ public final class Strand {
     public init(_ closure: Closure) throws {
         let box = Box(closure)
         let holder = Unmanaged.passRetained(box)
-        let closurePointer = UnsafeMutablePointer<Void>(holder.toOpaque())
+        let closurePointer = UnsafeMutableRawPointer(holder.toOpaque())
         
         #if os(Linux)
             var thread: pthread_t = 0
@@ -73,12 +69,12 @@ public final class Strand {
 }
 
 #if os(Linux)
-    private func runner(_ arg: UnsafeMutablePointer<Void>?) -> UnsafeMutablePointer<Void>? {
+    private func runner(_ arg: UnsafeMutableRawPointer?) -> UnsafeMutableRawPointer? {
         return arg.flatMap { runner($0) }
     }
 #endif
 
-private func runner(_ arg: UnsafeMutablePointer<Void>) -> UnsafeMutablePointer<Void>? {
+private func runner(_ arg: UnsafeMutableRawPointer) -> UnsafeMutableRawPointer? {
     let unmanaged = Unmanaged<Box<() -> Void>>.fromOpaque(arg)
     unmanaged.takeUnretainedValue().value()
     unmanaged.release()

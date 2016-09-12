@@ -12,7 +12,7 @@ extension String: StringRepresentable {
 }
 public extension StringRepresentable {
     public func makeString() -> String? {
-        return String(self)
+        return String(describing: self)
     }
 }
 public extension StringRepresentable where Self: RawRepresentable {

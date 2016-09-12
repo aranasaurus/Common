@@ -6,4 +6,4 @@ sudo: required
 dist: trusty
 osx_image: xcode8
 script:
-  - swift build
+  - eval "$(curl -sL https://raw.githubusercontent.com/ChameleonBot/Scripts/master/ci)"

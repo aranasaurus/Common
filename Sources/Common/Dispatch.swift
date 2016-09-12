@@ -1,4 +1,8 @@
-import libc
+#if os(Linux)
+import Glibc
+#else
+import Darwin.C
+#endif
 
 public protocol CancellableDispatchOperation {
     func cancel() throws

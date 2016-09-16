@@ -48,12 +48,8 @@ public extension String {
     /// Create a json `[String: Any]` from the current `String`
     public func makeDictionary() -> [String: Any] {
         do {
-            guard
-                let data = self.data(using: .utf8),
-                let json = try JSONSerialization.json(with: data)
-                else { return [:] }
-            
-            return json
+            guard let data = self.data(using: .utf8) else { return [:] }
+            return try JSONSerialization.json(with: data)
         }
         catch { return [:] }
     }

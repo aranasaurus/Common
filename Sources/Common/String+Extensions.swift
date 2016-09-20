@@ -68,3 +68,45 @@ public extension String {
         return "\(prefix)\(self)"
     }
 }
+
+public extension String {
+    /// Determine if the receiver is prefixed with one of the provided options
+    public func hasPrefix(options: [String]) -> Bool {
+        for option in options where self.hasPrefix(option) {
+            return true
+        }
+        return false
+    }
+    
+    /**
+     Returns the receiver with the provided prefix removed if found.
+     also, optionally, removes any additional leading whitespace
+     
+     - parameter prefix: The prefix to remove from the receiver
+     - parameter dropTrailingWhitespace: If `true` removes andy additionaly leading whitespace after `prefix`
+     - returns: The receiver with `prefix` and, optionally, leading whitespace removed
+     */
+    public func remove(prefix: String, dropTrailingWhitespace: Bool = true) -> String {
+        guard self.hasPrefix(prefix) else { return self }
+        
+        var result = self.substring(from: prefix.endIndex)
+        while result.hasPrefix(" ") {
+            result = result.substring(from: result.index(after: result.startIndex))
+        }
+        
+        return result
+    }
+}
+
+public extension String {
+    /**
+     Returns a substring of the receiver from the first `Character` up to the first found instance of the provided `Character`
+     
+     - parameter to: The `Character` to look for
+     - returns: If the `Character` was found the new substring, otherwise `nil`
+     */
+    public func substring(to value: Character) -> String? {
+        guard let index = self.characters.index(of: value) else { return nil }
+        return self.substring(to: index)
+    }
+}

@@ -1,4 +1,5 @@
 
+/// A collection that returns the current element as well as the previous and next elements when available
 public struct NeighborSequence<S: RandomAccessCollection>: Sequence, IteratorProtocol {
     public typealias Element = (previous: S.Iterator.Element?, current: S.Iterator.Element, next: S.Iterator.Element?)
     
@@ -31,6 +32,14 @@ public struct NeighborSequence<S: RandomAccessCollection>: Sequence, IteratorPro
 }
 
 extension RandomAccessCollection {
+    /** 
+     Return `Self` as a `NeighborSequence` 
+     
+     Each element in a `NeighborSequence` returns the element at the specified
+     index as well as the previous and next elements when possible.
+     
+     This allows you to see either side of a given element.
+     */
     public var neighbors: NeighborSequence<Self> {
         return NeighborSequence(sequence: self)
     }

@@ -40,4 +40,14 @@ public extension String {
         guard let index = self.characters.index(of: value) else { return nil }
         return self.substring(to: index)
     }
+    
+    /**
+     Returns a substring of the receiver from the given index to the end
+     
+     - parameter from: The index to start at
+     - returns: A new `String` instance that is the substring
+     */
+    func substring(from: Int) -> String {
+        return self.substring(from: self.index(self.startIndex, offsetBy: from))
+    }
 }

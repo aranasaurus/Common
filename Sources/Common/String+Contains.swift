@@ -26,6 +26,14 @@ public extension String {
         }
     }
     
+    /// Determine if the receiver contains only the provided values
+    public func contains<S: Sequence>(only characters: S) -> Bool where S.Iterator.Element == Character {
+        for c in self.characters {
+            if (!characters.contains(c)) { return false }
+        }
+        return true
+    }
+    
     /**
      Determine wether the receiver contains all of one set of values, any of another
      and the logical operation that joins them.

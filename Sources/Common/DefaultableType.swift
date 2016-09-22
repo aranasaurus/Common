@@ -20,3 +20,6 @@ extension Double: DefaultableType {
 extension Bool: DefaultableType {
     public static var `default`: Bool { return false }
 }
+extension Array: DefaultableType {
+    public static var `default`: Array<Element> { return [] }
+}

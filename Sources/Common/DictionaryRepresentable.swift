@@ -7,11 +7,25 @@ public protocol DictionaryRepresentable {
 public protocol DictionaryValueRepresentable {
     var dictionaryValue: Any? { get }
 }
-public extension DictionaryValueRepresentable {
+extension String: DictionaryValueRepresentable {
+    public var dictionaryValue: Any? { return self }
+}
+extension Int: DictionaryValueRepresentable {
+    public var dictionaryValue: Any? { return self }
+}
+extension Float: DictionaryValueRepresentable {
+    public var dictionaryValue: Any? { return self }
+}
+extension Double: DictionaryValueRepresentable {
+    public var dictionaryValue: Any? { return self }
+}
+extension Bool: DictionaryValueRepresentable {
     public var dictionaryValue: Any? { return self }
 }
 public extension DictionaryValueRepresentable where Self: RawRepresentable {
-    public var dictionaryValue: Any? { return self.rawValue }
+    public var dictionaryValue: Any? {
+        return self.rawValue
+    }
 }
 extension Mirror {
     func makeDictionary() -> [String: Any] {

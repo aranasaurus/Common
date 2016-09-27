@@ -14,9 +14,21 @@ public protocol StateRepresentable: Equatable {
     func transition(withEvent event: StateEvent) -> Self?
 }
 
+public struct StateChange<State: StateRepresentable>: CustomStringConvertible {
+    public let old: State?
+    public let new: State
+    
+    public var description: String {
+        if let oldState = self.old {
+            return "\(oldState) > \(self.new)"
+        }
+        return "\(self.new)"
+    }
+}
+
 /// A read-only version of a `StateMachine`
 public final class ReadOnlyStateMachine<State: StateRepresentable, Event> where State.StateEvent == Event {
-    public typealias StateTransition = (State?, State) -> Void
+    public typealias StateTransition = (StateChange<State>) -> Void
     
     private let stateMachine: StateMachine<State, Event>
     
@@ -31,7 +43,7 @@ public final class ReadOnlyStateMachine<State: StateRepresentable, Event> where 
 
 /// StateMachine coordinates state transitions and notifies observers
 public final class StateMachine<State: StateRepresentable, Event> where State.StateEvent == Event {
-    public typealias StateTransition = (State?, State) -> Void
+    public typealias StateTransition = (StateChange<State>) -> Void
     
     //MARK: - Public Properties
     private(set) public var state: State {
@@ -58,7 +70,8 @@ public final class StateMachine<State: StateRepresentable, Event> where State.St
     public func observe<T: AnyObject>(_ observer: T, transition: @escaping (T) -> StateTransition) {
         let observerWrapper = WeakObserver<State, Event>(observer: observer, transition: transition)
         self.observers.append(observerWrapper)
-        transition(observer)(nil, self.state)
+        let change = StateChange(old: nil, new: self.state)
+        transition(observer)(change)
     }
     public var readOnly: ReadOnlyStateMachine<State, Event> {
         return ReadOnlyStateMachine(stateMachine: self)
@@ -67,16 +80,18 @@ public final class StateMachine<State: StateRepresentable, Event> where State.St
     //MARK: - Private
     private func notifyObservers(from oldState: State?, to newState: State) {
         self.observers = self.observers.filter { $0.observer != nil }
+        
+        let change = StateChange(old: oldState, new: newState)
         self.observers.forEach { observer in
             if let object = observer.observer {
-                observer.transition(object)(oldState, newState)
+                observer.transition(object)(change)
             }
         }
     }
 }
 
 final private class WeakObserver<State: StateRepresentable, Event> where State.StateEvent == Event {
-    typealias StateTransition = (State?, State) -> Void
+    typealias StateTransition = (StateChange<State>) -> Void
     
     weak var observer: AnyObject?
     let transition: (AnyObject) -> StateTransition
@@ -85,8 +100,8 @@ final private class WeakObserver<State: StateRepresentable, Event> where State.S
         self.observer = observer as AnyObject
         self.transition = { obj in
             guard let obj = obj as? T else { fatalError() }
-            return { from, to in
-                transition(obj)(from, to)
+            return { change in
+                transition(obj)(change)
             }
         }
     }

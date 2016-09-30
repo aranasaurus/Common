@@ -42,6 +42,18 @@ public extension String {
     }
     
     /**
+     Returns a substring of the receiver from the start to the given index.from
+     If the end index is longer than the receiver the whole receiver is returned
+     
+     - parameter to: The index to stop at
+     - returns: A new `String` instance that is the substring
+     */
+    func substring(to index: Int) -> String {
+        let end = self.index(self.startIndex, offsetBy: index, limitedBy: self.endIndex) ?? self.endIndex
+        return self.substring(to: end)
+    }
+    
+    /**
      Returns a substring of the receiver from the given index to the end
      
      - parameter from: The index to start at

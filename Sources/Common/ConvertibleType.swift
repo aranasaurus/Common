@@ -37,11 +37,12 @@ extension ConvertibleType {
 extension Bool: ConvertibleType {
     public static func make(from value: Any) throws -> Bool {
         switch value {
-        case let value as String where ["1", "y", "yes", "t", "true"].contains(value): return true
-        case let value as String where ["0", "n", "no", "f", "false"].contains(value): return false
+        case let value as Bool: return value
+        case let value as String where ["1", "y", "yes", "t", "true"].contains(value.lowercased()): return true
+        case let value as String where ["0", "n", "no", "f", "false"].contains(value.lowercased()): return false
         case let value as Int where value == 1: return true
         case let value as Int where value == 0: return false
-        default: return false //try self.tryConvert(value)
+        default: return false
         }
     }
 }
@@ -53,8 +54,10 @@ extension String: ConvertibleType {
 extension Int: ConvertibleType {
     public static func make(from value: Any) throws -> Int {
         switch value {
-        case let value as String: return try self.tryConvert(value, Int.init)
+        case let value as String: return try self.tryConvert(value, { Int($0) })
         case let value as Bool: return (value ? 1 : 0)
+        case let value as Double: return Int(value)
+        case let value as Float: return Int(value)
         default: return try self.tryConvert(value)
         }
     }
@@ -62,8 +65,10 @@ extension Int: ConvertibleType {
 extension Float: ConvertibleType {
     public static func make(from value: Any) throws -> Float {
         switch value {
-        case let value as String: return try self.tryConvert(value, Float.init)
+        case let value as String: return try self.tryConvert(value, { Float($0) })
         case let value as Bool: return (value ? 1 : 0)
+        case let value as Double: return Float(value)
+        case let value as Int: return Float(value)
         default: return try self.tryConvert(value)
         }
     }
@@ -71,8 +76,10 @@ extension Float: ConvertibleType {
 extension Double: ConvertibleType {
     public static func make(from value: Any) throws -> Double {
         switch value {
-        case let value as String: return try self.tryConvert(value, Double.init)
+        case let value as String: return try self.tryConvert(value, { Double($0) })
         case let value as Bool: return (value ? 1 : 0)
+        case let value as Float: return Double(value)
+        case let value as Int: return Double(value)
         default: return try self.tryConvert(value)
         }
     }

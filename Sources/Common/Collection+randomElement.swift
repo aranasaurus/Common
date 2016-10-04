@@ -12,7 +12,7 @@ public extension Collection where Index == Int {
         let min = self.startIndex
         let max = self.endIndex - self.startIndex
         #if os(Linux)
-            let index = Int(libc.random() % max) + min
+            let index = Int(Glibc.random() % max) + min
         #else
             let index = Int(arc4random_uniform(UInt32(max))) + min
         #endif
